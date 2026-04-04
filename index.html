@@ -1,1682 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Cero a Ingreso Digital - La Guía Definitiva IA 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #ffffff;
-            background: #0a0a0f;
-            overflow-x: hidden;
-        }
-        
-        /* FONDO ANIMADO */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(120, 0, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(0, 200, 255, 0.08) 0%, transparent 60%),
-                linear-gradient(180deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
-        }
-        
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* BARRA DE URGENCIA */
-        .urgency-bar {
-            background: linear-gradient(90deg, #ff0055, #ff6600, #ff0055);
-            background-size: 200% 100%;
-            animation: gradientMove 3s ease infinite;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1em;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(255, 0, 85, 0.5);
-        }
-        
-        @keyframes gradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .timer {
-            display: inline-block;
-            font-size: 1.2em;
-            margin-left: 15px;
-            font-family: 'Courier New', monospace;
-            background: rgba(0,0,0,0.3);
-            padding: 5px 20px;
-            border-radius: 30px;
-            letter-spacing: 2px;
-        }
-        
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 20px;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: -1;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
-        
-        .hero-text {
-            flex: 1;
-            min-width: 350px;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #00f5a0, #00d9f5);
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.85em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-        
-        .hero h1 {
-            font-size: 4em;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #f472b6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero h2 {
-            font-size: 1.4em;
-            font-weight: 400;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00f5a0, #00d9f5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .hero-mockup {
-            flex: 0 0 400px;
-            position: relative;
-        }
-        
-        .hero-mockup img {
-            width: 100%;
-            filter: drop-shadow(0 30px 60px rgba(138, 43, 226, 0.4));
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .mockup-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 60%);
-            filter: blur(60px);
-            z-index: -1;
-        }
-        
-        /* BOTONES */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            color: white;
-            padding: 20px 45px;
-            font-size: 1.2em;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 60px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 
-                0 10px 40px rgba(139, 92, 246, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 
-                0 20px 60px rgba(139, 92, 246, 0.5),
-                inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-        
-        .cta-secondary {
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.3);
-            box-shadow: none;
-        }
-        
-        .cta-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.5);
-        }
-        
-        .guarantee-text {
-            margin-top: 25px;
-            font-size: 0.95em;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        .guarantee-text span {
-            color: #00f5a0;
-        }
-        
-        /* SECCIONES */
-        section {
-            padding: 120px 20px;
-            position: relative;
-        }
-        
-        .section-dark {
-            background: rgba(255,255,255,0.02);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        h2 {
-            font-size: 3em;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 60px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* PROBLEMA */
-        .problema-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .problema-item {
-            background: linear-gradient(135deg, rgba(255,50,100,0.1), rgba(255,100,50,0.05));
-            border: 1px solid rgba(255,100,100,0.2);
-            padding: 25px 30px;
-            border-radius: 16px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: all 0.3s;
-        }
-        
-        .problema-item:hover {
-            transform: translateX(10px);
-            border-color: rgba(255,100,100,0.4);
-            background: linear-gradient(135deg, rgba(255,50,100,0.15), rgba(255,100,50,0.1));
-        }
-        
-        .problema-icon {
-            font-size: 1.5em;
-        }
-        
-        /* SOLUCIÓN */
-        .solucion-box {
-            background: linear-gradient(135deg, rgba(0,245,160,0.1), rgba(0,217,245,0.05));
-            border: 1px solid rgba(0,245,160,0.2);
-            border-radius: 24px;
-            padding: 50px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .timeline-item {
-            display: flex;
-            gap: 20px;
-            margin: 25px 0;
-            align-items: flex-start;
-        }
-        
-        .timeline-time {
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-        
-        .timeline-text {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .notification-box {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(0,245,160,0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .notification-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: #00f5a0;
-            font-weight: 600;
-        }
-        
-        .notification-item:last-child {
-            border-bottom: none;
-        }
-        
-        /* MÉTODOS */
-        .metodos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-        }
-        
-        .metodo-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 35px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .metodo-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #8b5cf6, #d946ef, #00f5a0);
-        }
-        
-        .metodo-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139, 92, 246, 0.5);
-            box-shadow: 
-                0 30px 60px rgba(0,0,0,0.3),
-                0 0 60px rgba(139, 92, 246, 0.15);
-        }
-        
-        .metodo-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4em;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        
-        .metodo-card h4 {
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .metodo-income {
-            font-size: 1.3em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00f5a0, #00d9f5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-        
-        .metodo-card p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1em;
-            line-height: 1.6;
-        }
-        
-        .metodo-meta {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9em;
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .metodo-meta span {
-            display: block;
-            margin: 8px 0;
-        }
-        
-        /* ALERTA */
-        .alerta-box {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            border-radius: 16px;
-            padding: 30px 40px;
-            margin-top: 60px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        
-        .alerta-icon {
-            font-size: 2em;
-        }
-        
-        .alerta-box h4 {
-            color: #fbbf24;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        
-        .alerta-box p {
-            color: rgba(255,255,255,0.8);
-        }
-        
-        /* TESTIMONIOS */
-        .testimonios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonio-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 35px;
-            position: relative;
-            transition: all 0.3s;
-        }
-        
-        .testimonio-card:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 3em;
-            opacity: 0.1;
-        }
-        
-        .stars {
-            color: #fbbf24;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-        
-        .testimonio-text {
-            font-size: 1.05em;
-            color: rgba(255,255,255,0.85);
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-        
-        .testimonio-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .author-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2em;
-        }
-        
-        .author-info strong {
-            display: block;
-            color: #fff;
-            font-size: 1.1em;
-        }
-        
-        .author-info span {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.95em;
-        }
-        
-        /* CONTENIDO */
-        .contenido-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .contenido-item {
-            background: linear-gradient(145deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.03));
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 16px;
-            padding: 25px;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            transition: all 0.3s;
-        }
-        
-        .contenido-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.4);
-        }
-        
-        .contenido-check {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #00f5a0, #00d9f5);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
-            flex-shrink: 0;
-        }
-        
-        .contenido-item h4 {
-            font-size: 1.1em;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-        
-        .contenido-item p {
-            font-size: 0.95em;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        /* PRECIO */
-        .pricing-section {
-            text-align: center;
-        }
-        
-        .pricing-box {
-            background: linear-gradient(145deg, rgba(139, 92, 246, 0.15), rgba(217, 70, 239, 0.1));
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            border-radius: 32px;
-            padding: 60px 50px;
-            max-width: 550px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            animation: rotateBg 20s linear infinite;
-        }
-        
-        @keyframes rotateBg {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .pricing-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .price-label {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 10px;
-        }
-        
-        .price-original {
-            font-size: 2.5em;
-            text-decoration: line-through;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 10px;
-        }
-        
-        .price-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff0055, #ff6600);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1em;
-            margin-bottom: 20px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,0,85,0.4); }
-            50% { transform: scale(1.02); box-shadow: 0 0 30px 10px rgba(255,0,85,0); }
-        }
-        
-        .price-now {
-            font-size: 5em;
-            font-weight: 900;
-            background: linear-gradient(135deg, #fff, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 20px 0;
-            line-height: 1;
-        }
-        
-        .price-save {
-            font-size: 1.2em;
-            color: #00f5a0;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-features {
-            text-align: left;
-            margin: 30px 0;
-        }
-        
-        .pricing-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .pricing-feature:last-child {
-            border-bottom: none;
-        }
-        
-        .feature-check {
-            color: #00f5a0;
-            font-size: 1.2em;
-        }
-        
-        .price-cta {
-            margin-top: 30px;
-        }
-        
-        .price-cta .cta-button {
-            width: 100%;
-            justify-content: center;
-            padding: 22px 40px;
-            font-size: 1.3em;
-        }
-        
-        .price-guarantee {
-            margin-top: 25px;
-            font-size: 0.95em;
-            color: rgba(255,255,255,0.6);
-        }
-        
-        .countdown-box {
-            margin-top: 50px;
-            padding: 25px;
-            background: rgba(255,0,85,0.1);
-            border: 1px solid rgba(255,0,85,0.3);
-            border-radius: 16px;
-        }
-        
-        .countdown-label {
-            font-size: 1.1em;
-            color: #ff6b6b;
-            margin-bottom: 10px;
-        }
-        
-        .countdown-timer {
-            font-size: 2.5em;
-            font-weight: 800;
-            font-family: 'Courier New', monospace;
-            color: #fff;
-            letter-spacing: 3px;
-        }
-        
-        /* GARANTÍA */
-        .garantia-box {
-            background: linear-gradient(145deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.05));
-            border: 2px solid rgba(0, 245, 160, 0.3);
-            border-radius: 24px;
-            padding: 50px;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .garantia-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-        
-        .garantia-box h3 {
-            font-size: 1.8em;
-            color: #00f5a0;
-            margin-bottom: 25px;
-        }
-        
-        .garantia-box p {
-            font-size: 1.15em;
-            color: rgba(255,255,255,0.85);
-            line-height: 1.9;
-        }
-        
-        /* FAQ */
-        .faq-grid {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            margin: 15px 0;
-            padding: 30px;
-            transition: all 0.3s;
-        }
-        
-        .faq-item:hover {
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-        
-        .faq-question {
-            font-size: 1.15em;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .faq-icon {
-            color: #8b5cf6;
-        }
-        
-        .faq-answer {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            padding-left: 32px;
-        }
-        
-        /* AUTOR */
-        .autor-box {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .autor-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b5cf6, #d946ef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            font-weight: 800;
-            flex-shrink: 0;
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
-        }
-        
-        .autor-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .autor-info h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #fff, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .autor-info p {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .autor-contact {
-            color: #8b5cf6;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        /* CIERRE */
-        .cierre-section {
-            text-align: center;
-            background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.1));
-        }
-        
-        .cierre-quote {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 50px auto;
-            max-width: 700px;
-            font-style: italic;
-        }
-        
-        .cierre-quote p {
-            font-size: 1.4em;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 15px;
-        }
-        
-        .cierre-quote strong {
-            color: #a78bfa;
-        }
-        
-        /* FOOTER */
-        footer {
-            background: rgba(0,0,0,0.5);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        footer p {
-            color: rgba(255,255,255,0.5);
-            margin: 10px 0;
-            font-size: 0.95em;
-        }
-        
-        footer a {
-            color: #8b5cf6;
-            text-decoration: none;
-        }
-        
-        .footer-links {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .footer-links a {
-            margin: 0 20px;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9em;
-        }
-        
-        .footer-disclaimer {
-            max-width: 800px;
-            margin: 30px auto 0;
-            font-size: 0.85em;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.7;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            
-            .hero h2 {
-                font-size: 1.1em;
-            }
-            
-            .hero-mockup {
-                flex: 1 1 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            h2 {
-                font-size: 2em;
-            }
-            
-            .price-now {
-                font-size: 3.5em;
-            }
-            
-            .metodos-grid,
-            .testimonios-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .autor-box {
-                text-align: center;
-            }
-            
-            .autor-info {
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Sin Humo | Elias Dos Santos</title>
+  <meta name="description" content="La guía práctica y honesta para entender las oportunidades reales de monetización con Inteligencia Artificial en Latinoamérica." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --bg-secondary: #111827;
+      --card: #1E293B;
+      --text: #F8FAFC;
+      --muted: #CBD5E1;
+      --green: #22C55E;
+      --blue: #38BDF8;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #0F172A 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--blue);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      padding: 100px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-bottom: 26px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #07130b;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .ebook-card {
+      background: linear-gradient(180deg, #1E293B 0%, #111827 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .ebook-cover {
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, #22C55E 0%, #38BDF8 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      color: #071018;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .list-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .author-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .footer {
+      padding: 50px 0 70px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- FONDOS -->
-    <div class="bg-gradient"></div>
-    <div class="bg-grid"></div>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">E-book digital para principiantes en Latinoamérica</span>
+        <h1>IA Sin Humo</h1>
+        <p>
+          La guía práctica y honesta para entender las oportunidades reales de monetización con
+          Inteligencia Artificial en Latinoamérica.
+        </p>
+        <p>
+          Si estás cansado del humo, de las promesas exageradas y de no saber por dónde empezar,
+          este e-book te ayuda a entender qué opciones existen, cómo funcionan y cuál puede
+          tener más sentido para vos.
+        </p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
+          <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
+        </div>
+      </div>
 
-    <!-- BARRA DE URGENCIA -->
-    <div class="urgency-bar">
-        ⚡ OFERTA DE LANZAMIENTO - TERMINA EN 
-        <span class="timer" id="countdown">47:23:15</span>
+      <div class="ebook-card">
+        <div class="ebook-cover">
+          IA SIN HUMO
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="badge">🔥 Nuevo 2026</div>
-                    <h1>De Cero a Ingreso Digital</h1>
-                    <h2>La guía definitiva para generar dinero usando Inteligencia Artificial. Sin experiencia, sin inversión, desde cualquier lugar del mundo.</h2>
-                    
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <div class="stat-number">$10K+</div>
-                            <div class="stat-label">Potencial Mensual</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">8</div>
-                            <div class="stat-label">Métodos Probados</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">45K+</div>
-                            <div class="stat-label">Palabras</div>
-                        </div>
-                    </div>
-                    
-                    <a href="#precio" class="cta-button">
-                        🚀 Descargar por $17
-                    </a>
-                    
-                    <p class="guarantee-text">
-                        <span>✓</span> Descarga inmediata &nbsp;|&nbsp; 
-                        <span>✓</span> Garantía 30 días &nbsp;|&nbsp; 
-                        <span>✓</span> Pago seguro
-                    </p>
-                </div>
-                
-                <div class="hero-mockup">
-                    <div class="mockup-glow"></div>
-                    <img src="mockup.png" alt="eBook De Cero a Ingreso Digital">
-                </div>
-            </div>
+  <section class="section">
+    <div class="container">
+      <span class="badge">El problema</span>
+      <h2>Demasiado ruido. Demasiadas promesas. Muy poca claridad.</h2>
+      <p>
+        Hay miles de videos, hilos y cursos hablando de ganar dinero con IA. El problema es que
+        gran parte de ese contenido exagera resultados, oculta el trabajo real y deja a la gente
+        más confundida que al principio.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>No sabés por dónde empezar</h3>
+          <p>Ves muchas opciones, pero no tenés claro cuál tiene sentido para tu situación real.</p>
         </div>
-    </section>
-
-    <!-- PROBLEMA -->
-    <section class="section-dark">
-        <div class="container">
-            <h2>¿Te Sientes Identificado?</h2>
-            <p class="section-subtitle">Miles de personas viven esta frustración cada día. No estás solo.</p>
-            
-            <div class="problema-grid">
-                <div class="problema-item">
-                    <span class="problema-icon">😓</span>
-                    <span>Trabajas +8 horas y apenas te alcanza para vivir</span>
-                </div>
-                <div class="problema-item">
-                    <span class="problema-icon">💻</span>
-                    <span>Ves cómo otros ganan online pero no sabes cómo empezar</span>
-                </div>
-                <div class="problema-item">
-                    <span class="problema-icon">⏰</span>
-                    <span>Has intentado "ganar dinero en internet" y solo perdiste tiempo</span>
-                </div>
-                <div class="problema-item">
-                    <span class="problema-icon">🤖</span>
-                    <span>La tecnología y la IA te intimidan... crees que es "para expertos"</span>
-                </div>
-                <div class="problema-item">
-                    <span class="problema-icon">💸</span>
-                    <span>Necesitas ingresos extra pero no tienes capital para invertir</span>
-                </div>
-                <div class="problema-item">
-                    <span class="problema-icon">🌍</span>
-                    <span>Vives en un país con economía difícil y necesitas dólares</span>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Desconfiás del humo</h3>
+          <p>Ya viste demasiadas promesas vacías sobre ingresos fáciles y métodos mágicos.</p>
         </div>
-    </section>
-
-    <!-- SOLUCIÓN -->
-    <section>
-        <div class="container">
-            <h2>✨ Imagina Despertar Así</h2>
-            <p class="section-subtitle">Este es el día a día de quienes aplicaron los métodos del libro</p>
-            
-            <div class="solucion-box">
-                <div class="timeline-item">
-                    <span class="timeline-time">6:47 AM</span>
-                    <span class="timeline-text">Tu alarma no suena. Despiertas cuando tu cuerpo quiere.</span>
-                </div>
-                
-                <div class="timeline-item">
-                    <span class="timeline-time">7:15 AM</span>
-                    <span class="timeline-text">Revisas tu teléfono en la cama. Tienes 3 notificaciones:</span>
-                </div>
-                
-                <div class="notification-box">
-                    <div class="notification-item">
-                        💰 PayPal: Has recibido $127.00 USD
-                    </div>
-                    <div class="notification-item">
-                        💰 PayPal: Has recibido $89.00 USD
-                    </div>
-                    <div class="notification-item">
-                        💰 PayPal: Has recibido $231.00 USD
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <span class="timeline-time">8:30 AM</span>
-                    <span class="timeline-text">Desayunas tranquilo. Planeas trabajar 3-4 horas hoy.</span>
-                </div>
-                
-                <div class="timeline-item">
-                    <span class="timeline-time">9:00 AM</span>
-                    <span class="timeline-text">Abres tu laptop. ChatGPT hace el 80% del trabajo.</span>
-                </div>
-                
-                <div class="timeline-item">
-                    <span class="timeline-time">12:00 PM</span>
-                    <span class="timeline-text">Terminaste. El resto del día es completamente tuyo.</span>
-                </div>
-                
-                <p style="text-align: center; margin-top: 40px; font-size: 1.3em; font-weight: 600;">
-                    ¿Fantasía? Para <span style="color: #00f5a0;">2,847 lectores</span> ya es su realidad.
-                </p>
-            </div>
+        <div class="card">
+          <h3>Querés algo práctico</h3>
+          <p>No buscás fantasía. Buscás una guía clara, útil y realista para empezar mejor.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- MÉTODOS -->
-    <section class="section-dark">
-        <div class="container">
-            <h2>8 Métodos Paso a Paso</h2>
-            <p class="section-subtitle">Cada método incluye tutoriales detallados, prompts listos y casos de éxito reales</p>
-            
-            <div class="metodos-grid">
-                <div class="metodo-card">
-                    <div class="metodo-number">1</div>
-                    <h4>Freelancing con IA</h4>
-                    <div class="metodo-income">$1,000 - $5,000/mes</div>
-                    <p>Vende servicios premium en Fiverr y Upwork usando ChatGPT, Midjourney y Claude. Incluye plantillas de propuestas ganadoras.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 2-3 semanas</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Fácil</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">2</div>
-                    <h4>Productos Digitales</h4>
-                    <div class="metodo-income">$2,000 - $6,000/mes</div>
-                    <p>Crea y vende eBooks, cursos y plantillas en Amazon KDP, Gumroad, Hotmart. Ingresos pasivos mientras duermes.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 3-6 semanas</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Media</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">3</div>
-                    <h4>Marketing de Afiliados</h4>
-                    <div class="metodo-income">Ingresos Pasivos</div>
-                    <p>Blog + YouTube sin mostrar tu cara. ChatGPT escribe, la IA genera videos. Tú solo cobras las comisiones.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 2-4 meses</span>
-                        <span>💵 Inversión: $0-50</span>
-                        <span>📊 Dificultad: Media</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">4</div>
-                    <h4>Agencia de Marketing</h4>
-                    <div class="metodo-income">$8,000 - $10,000/mes</div>
-                    <p>Gestiona 15+ clientes mientras la IA hace el 80% del trabajo. El modelo más rentable del libro.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 1-2 meses</span>
-                        <span>💵 Inversión: $0-100</span>
-                        <span>📊 Dificultad: Alta</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">5</div>
-                    <h4>Contenido en Redes</h4>
-                    <div class="metodo-income">$1,500 - $4,000/mes</div>
-                    <p>YouTube, TikTok, Instagram sin mostrar tu cara. IA crea guion, voz y video. Tú subes y monetizas.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 2-6 meses</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Fácil</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">6</div>
-                    <h4>Chatbots y Automatización</h4>
-                    <div class="metodo-income">$3,000 - $7,000/mes</div>
-                    <p>Cobra $500-1,500 por chatbot + $200/mes mantenimiento. Clientes recurrentes. Todas las empresas lo necesitan.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 3-5 semanas</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Media</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">7</div>
-                    <h4>Arte Digital con IA</h4>
-                    <div class="metodo-income">$800 - $2,500/mes</div>
-                    <p>Vende arte en Etsy, Redbubble, Amazon sin saber dibujar. Midjourney crea, tú vendes. Print on demand.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 1-3 meses</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Fácil</span>
-                    </div>
-                </div>
-                
-                <div class="metodo-card">
-                    <div class="metodo-number">8</div>
-                    <h4>Consultoría en IA</h4>
-                    <div class="metodo-income">$150 - $300/hora</div>
-                    <p>Conviértete en el experto local en IA. Cobra por enseñar a empresas. Escala con cursos online.</p>
-                    <div class="metodo-meta">
-                        <span>⏱️ Primeros ingresos: 1-2 meses</span>
-                        <span>💵 Inversión: $0</span>
-                        <span>📊 Dificultad: Alta</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="alerta-box">
-                <span class="alerta-icon">💡</span>
-                <div>
-                    <h4>No necesitas hacerlos todos</h4>
-                    <p>El libro te ayuda a elegir el método ideal para tu situación. La mayoría empieza con uno, lo domina, y luego agrega un segundo.</p>
-                </div>
-            </div>
+  <section class="section">
+    <div class="container">
+      <span class="badge">Qué incluye</span>
+      <h2>Lo que vas a encontrar dentro del e-book</h2>
+      <div class="list">
+        <div class="list-item"><span class="highlight">Introducción honesta:</span> sin historias falsas ni promesas inventadas.</div>
+        <div class="list-item"><span class="highlight">Capítulo 1 al 10:</span> desde qué es realmente la IA hasta cómo elegir un camino y ejecutar un plan.</div>
+        <div class="list-item"><span class="highlight">Herramientas útiles:</span> las que realmente vale la pena conocer al empezar.</div>
+        <div class="list-item"><span class="highlight">Plan de acción de 30 días:</span> para pasar de la teoría a la práctica.</div>
+        <div class="list-item"><span class="highlight">Errores, mitos y verdades incómodas:</span> para evitar humo y expectativas falsas.</div>
+        <div class="list-item"><span class="highlight">Recursos extra y glosario:</span> para seguir aprendiendo con más claridad.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="badge">Para quién es</span>
+      <h2>Este e-book es para vos si...</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Estás empezando desde cero</h3>
+          <p>No sos experto en IA, no sabés programar y necesitás una guía clara para orientarte.</p>
         </div>
-    </section>
-
-    <!-- TESTIMONIOS -->
-    <section>
-        <div class="container">
-            <h2>Lo Que Dicen Los Lectores</h2>
-            <p class="section-subtitle">Resultados reales de personas reales</p>
-            
-            <div class="testimonios-grid">
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "En el segundo mes gané mis primeros $1,200. Seguí el método de freelancing con Midjourney. Hoy, 6 meses después, dejé mi trabajo de oficina y gano el triple trabajando desde casa solo 4 horas al día."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">MG</div>
-                        <div class="author-info">
-                            <strong>María González</strong>
-                            <span>34 años, Guadalajara, México</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "Era mesero ganando $400 al mes. Aprendí a usar ChatGPT y Midjourney como explica el libro. Abrí perfil en Fiverr vendiendo logos. En 6 meses llegué a $3,800/mes. Mi familia no lo podía creer."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">CR</div>
-                        <div class="author-info">
-                            <strong>Carlos Ramírez</strong>
-                            <span>28 años, Bogotá, Colombia</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "Soy profesora, perdí mi trabajo. Creé 12 e-books siguiendo el capítulo 4. Ahora genero $4,500/mes en Amazon KDP mientras duermo. Ingresos pasivos REALES. Lo mejor: tengo tiempo para mi familia."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">AP</div>
-                        <div class="author-info">
-                            <strong>Ana Lucía Pérez</strong>
-                            <span>42 años, Valencia, España</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "Trabajaba en una fábrica 12 horas diarias. Estudié el libro por las noches. Empecé con el método de afiliados. Hoy mi blog genera $2,800/mes. En 2 meses renuncio y me dedico 100% a esto."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">RD</div>
-                        <div class="author-info">
-                            <strong>Roberto Díaz</strong>
-                            <span>31 años, Buenos Aires, Argentina</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "Mi esposa y yo estábamos desempleados. Creamos una agencia de redes sociales con IA. Manejamos 15 clientes solo nosotros dos. Ganamos $8,500/mes combinados. La IA hace el 80% del trabajo."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">DV</div>
-                        <div class="author-info">
-                            <strong>Diego & Valentina</strong>
-                            <span>29 y 27 años, Quito, Ecuador</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <span class="quote-icon">"</span>
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonio-text">
-                        "Estudiante sin dinero. Creé un canal de YouTube de curiosidades sin mostrar mi cara. En 8 meses: 150K suscriptores y $3,200/mes de AdSense. Pago mi universidad y ayudo a mis padres."
-                    </p>
-                    <div class="testimonio-author">
-                        <div class="author-avatar">LM</div>
-                        <div class="author-info">
-                            <strong>Laura Mendoza</strong>
-                            <span>24 años, Lima, Perú</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Vivís en Latinoamérica</h3>
+          <p>Querés entender qué oportunidades tienen sentido para tu contexto real y tus recursos actuales.</p>
         </div>
-    </section>
-
-    <!-- CONTENIDO -->
-    <section class="section-dark">
-        <div class="container">
-            <h2>Qué Hay Dentro del Libro</h2>
-            <p class="section-subtitle">Todo lo que necesitas para empezar a generar ingresos con IA</p>
-            
-            <div class="contenido-grid">
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>45,000+ palabras de contenido</h4>
-                        <p>No teoría. Solo estrategias que funcionan en 2026.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>12 capítulos completos</h4>
-                        <p>Cada uno con 3,000-5,000 palabras y tutoriales.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>Guía de 20 herramientas IA</h4>
-                        <p>ChatGPT, Midjourney, Claude y más con trucos secretos.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>50+ Prompts listos</h4>
-                        <p>Copia, pega y obtén resultados profesionales.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>9 casos de éxito reales</h4>
-                        <p>Nombres, ciudades y cifras exactas de ingresos.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>Plan de 90 días</h4>
-                        <p>Sabes exactamente qué hacer cada día.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>Plantillas de propuestas</h4>
-                        <p>Las que generan $3,000-5,000/mes a freelancers.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>Precios exactos por servicio</h4>
-                        <p>Cuánto cobrar para ser competitivo y rentable.</p>
-                    </div>
-                </div>
-                
-                <div class="contenido-item">
-                    <div class="contenido-check">✓</div>
-                    <div>
-                        <h4>Aspectos legales y fiscales</h4>
-                        <p>Cómo cobrar y facturar siendo freelancer digital.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Querés algo honesto</h3>
+          <p>Preferís una guía realista antes que otra promesa de dinero fácil que suena demasiado buena para ser verdad.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- PRECIO -->
-    <section class="pricing-section" id="precio">
-        <div class="container">
-            <h2>Invierte en Tu Futuro</h2>
-            <p class="section-subtitle">Una decisión de $17 puede cambiar tu vida financiera</p>
-            
-            <div class="pricing-box">
-                <div class="pricing-content">
-                    <p class="price-label">Precio regular</p>
-                    <div class="price-original">$97</div>
-                    
-                    <div class="price-badge">
-                        🔥 LANZAMIENTO 72 HORAS
-                    </div>
-                    
-                    <div class="price-now">$17</div>
-                    
-                    <p class="price-save">¡Ahorras $80! (82% de descuento)</p>
-                    
-                    <div class="pricing-features">
-                        <div class="pricing-feature">
-                            <span class="feature-check">✓</span>
-                            <span>Descarga inmediata en PDF</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="feature-check">✓</span>
-                            <span>Acceso de por vida</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="feature-check">✓</span>
-                            <span>Todas las actualizaciones futuras gratis</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="feature-check">✓</span>
-                            <span>Soporte por email 6 meses</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="feature-check">✓</span>
-                            <span>Garantía de devolución 30 días</span>
-                        </div>
-                    </div>
-                    
-                    <div class="price-cta">
-                        <a href="TU_LINK_GUMROAD" class="cta-button">
-                            🚀 Descargar Ahora
-                        </a>
-                    </div>
-                    
-                    <p class="price-guarantee">
-                        🔒 Pago 100% seguro procesado por Gumroad
-                    </p>
-                </div>
-            </div>
-            
-            <div class="countdown-box" style="max-width: 550px; margin: 40px auto 0;">
-                <p class="countdown-label">⚠️ Esta oferta expira en:</p>
-                <div class="countdown-timer" id="countdown2">47:23:15</div>
-            </div>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container">
+      <span class="badge">Qué lo hace distinto</span>
+      <h2>Por qué este e-book no se parece al resto</h2>
+      <div class="list">
+        <div class="list-item">No vende una historia falsa de éxito.</div>
+        <div class="list-item">No promete ingresos garantizados.</div>
+        <div class="list-item">Está escrito para personas comunes, no para expertos en tecnología.</div>
+        <div class="list-item">Explica oportunidades reales con lenguaje claro y útil.</div>
+        <div class="list-item">Está pensado para ayudarte a entender, decidir y empezar.</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- GARANTÍA -->
-    <section class="section-dark">
-        <div class="container">
-            <div class="garantia-box">
-                <div class="garantia-icon">🛡️</div>
-                <h3>Garantía de 30 Días</h3>
-                <p>
-                    Descarga el libro. Léelo completo. Aplica los métodos.<br><br>
-                    Si en 30 días no estás <strong>completamente convencido</strong> de que este libro puede cambiar tu vida financiera...<br><br>
-                    <strong style="font-size: 1.2em; color: #00f5a0;">Te devuelvo el 100% de tu dinero.</strong><br><br>
-                    Sin preguntas. Sin condiciones.<br>
-                    Yo asumo TODO el riesgo. Tú solo ganas.
-                </p>
-            </div>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container">
+      <span class="badge">Sobre el autor</span>
+      <h2>Quién escribió IA Sin Humo</h2>
+      <div class="author-box">
+        <p>
+          <strong>Elias Dos Santos</strong> tiene 20 años, vive en Misiones, Argentina, y escribió este e-book
+          desde un lugar simple: ayudar a principiantes a entender mejor las oportunidades reales
+          de monetización con IA sin caer en humo, exageraciones ni promesas vacías.
+        </p>
+        <br />
+        <p>
+          No se presenta como gurú ni como alguien que ya “la rompió”. Su enfoque es más honesto:
+          investigar, ordenar, filtrar y explicar de forma clara lo que realmente puede servirle a alguien
+          que está empezando.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section>
-        <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <p class="section-subtitle">Todo lo que necesitas saber antes de comprar</p>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿Necesito experiencia técnica o en programación?
-                    </div>
-                    <div class="faq-answer">
-                        No. El libro está diseñado para PRINCIPIANTES absolutos. Si sabes usar Google y WhatsApp, puedes hacer esto. Todos los tutoriales son paso a paso con lenguaje simple.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿Funciona en mi país?
-                    </div>
-                    <div class="faq-answer">
-                        Sí. Los métodos funcionan desde CUALQUIER país con acceso a internet. La mayoría de los testimonios son de Latinoamérica y España. Trabajas en internet, cobras en dólares.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿Necesito invertir dinero para empezar?
-                    </div>
-                    <div class="faq-answer">
-                        6 de los 8 métodos puedes empezarlos con $0. Los otros 2 requieren inversión mínima de $20-50 (opcional). El libro te indica claramente cuáles son gratis.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿Cuánto tiempo toma ver resultados?
-                    </div>
-                    <div class="faq-answer">
-                        Depende del método. Freelancing puede generar los primeros $100-300 en 2-4 semanas. Productos digitales toman 1-2 meses. YouTube/Blog 2-4 meses. El libro incluye timeline realista de cada método.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿En qué formato recibiré el libro?
-                    </div>
-                    <div class="faq-answer">
-                        PDF profesional de alta calidad, compatible con cualquier dispositivo (computadora, tablet, celular, Kindle). Descarga inmediata tras el pago.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿Realmente puedo ganar $1,000-10,000/mes?
-                    </div>
-                    <div class="faq-answer">
-                        Los testimonios son REALES. Pero seamos honestos: requiere trabajo, consistencia y aplicar lo que enseña el libro. Los que trabajan en serio, obtienen resultados en serio.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span class="faq-icon">→</span>
-                        ¿El pago es seguro?
-                    </div>
-                    <div class="faq-answer">
-                        100%. Procesamos pagos a través de Gumroad (plataforma con millones de transacciones). Aceptamos tarjetas de crédito/débito y PayPal. Tus datos están encriptados.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <span class="badge">Último paso</span>
+      <h2>Elegí empezar con más claridad</h2>
+      <p style="max-width: 720px; margin: 0 auto 26px;">
+        No necesitás hacerlo perfecto. Necesitás entender mejor qué oportunidades existen y cuál tiene
+        más sentido para vos. Este e-book está hecho para eso.
+      </p>
+      <div class="cta-group" style="justify-content:center;">
+        <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
+        <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- AUTOR -->
-    <section class="section-dark">
-        <div class="container">
-            <h2>Sobre el Autor</h2>
-            
-            <div class="autor-box">
-                <div class="autor-photo">DE</div>
-                <div class="autor-info">
-                    <h3>Dos Santos Elias</h3>
-                    <p>
-                        Emprendedor digital desde 2010. Experto en monetización con Inteligencia Artificial. Ayudé a más de 5,000 personas en 47 países a generar sus primeros ingresos online.
-                    </p>
-                    <p>
-                        Pasé de no tener nada a vivir 100% de internet. Perdí dinero, cometí errores, aprendí de los mejores. Ahora comparto todo lo que me tomó 15 años aprender.
-                    </p>
-                    <a href="mailto:dossantoseliascontacto@gmail.com" class="autor-contact">
-                        📧 dossantoseliascontacto@gmail.com
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CIERRE -->
-    <section class="cierre-section">
-        <div class="container">
-            <h2>Tu Momento Es Ahora</h2>
-            
-            <p style="font-size: 1.3em; max-width: 800px; margin: 30px auto; color: rgba(255,255,255,0.8); line-height: 1.9;">
-                Dentro de 6 meses estarás en uno de estos dos lugares:<br><br>
-                <strong style="color: #ff6b6b;">1.</strong> Exactamente donde estás ahora. Mismo trabajo, mismo sueldo, mismas preocupaciones.<br><br>
-                <strong style="color: #00f5a0;">2.</strong> Generando ingresos en dólares, trabajando desde casa, siendo dueño de tu tiempo.<br><br>
-                La diferencia es una decisión de $17 que tomas AHORA.
-            </p>
-            
-            <a href="TU_LINK_GUMROAD" class="cta-button" style="margin: 40px 0;">
-                🚀 Quiero Cambiar Mi Vida
-            </a>
-            
-            <div class="cierre-quote">
-                <p>"El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es AHORA."</p>
-                <strong>— Proverbio Chino</strong>
-            </div>
-            
-            <p style="font-size: 1.2em; margin-top: 40px; color: rgba(255,255,255,0.7);">
-                Nos vemos del otro lado,<br>
-                <strong style="font-size: 1.4em; color: #fff;">Dos Santos Elias</strong>
-            </p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>© 2026 Dos Santos Elias. Todos los derechos reservados.</p>
-            <p>📧 <a href="mailto:dossantoseliascontacto@gmail.com">dossantoseliascontacto@gmail.com</a></p>
-            
-            <div class="footer-links">
-                <a href="#">Términos y Condiciones</a>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Política de Reembolso</a>
-            </div>
-            
-            <p class="footer-disclaimer">
-                <strong>Descargo de responsabilidad:</strong> Los resultados pueden variar según el esfuerzo, dedicación y circunstancias individuales. Los testimonios son casos reales pero no garantizan resultados idénticos. Este producto no promete ganancias automáticas. Requiere trabajo y aplicación de las estrategias enseñadas.
-            </p>
-        </div>
-    </footer>
-
-    <!-- CONTADOR -->
-    <script>
-        let tiempoRestante = 259200;
-        
-        function actualizarContador() {
-            const horas = Math.floor(tiempoRestante / 3600);
-            const minutos = Math.floor((tiempoRestante % 3600) / 60);
-            const segundos = tiempoRestante % 60;
-            
-            const display = `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
-            
-            document.getElementById('countdown').textContent = display;
-            document.getElementById('countdown2').textContent = display;
-            
-            if (tiempoRestante > 0) {
-                tiempoRestante--;
-            }
-        }
-        
-        setInterval(actualizarContador, 1000);
-        actualizarContador();
-    </script>
+  <footer class="footer">
+    <div class="container">
+      <p><strong>IA Sin Humo</strong> — Elias Dos Santos</p>
+      <p>Misiones, Argentina</p>
+      <p style="margin-top: 10px;">Email: TU_EMAIL</p>
+      <p>Instagram: TU_INSTAGRAM</p>
+    </div>
+  </footer>
 
 </body>
 </html>
