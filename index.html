@@ -45,11 +45,6 @@
       color: inherit;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
       width: 90%;
       max-width: var(--max-width);
@@ -110,14 +105,14 @@
 
     .hero p {
       max-width: 650px;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
 
     .cta-group {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     .btn {
@@ -216,6 +211,32 @@
       margin-top: 24px;
     }
 
+    .price-box {
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .old-price {
+      color: #94A3B8;
+      font-size: 1rem;
+      text-decoration: line-through;
+      margin-bottom: 6px;
+    }
+
+    .new-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
     .footer {
       padding: 50px 0 70px;
       text-align: center;
@@ -261,6 +282,13 @@
           este e-book te ayuda a entender qué opciones existen, cómo funcionan y cuál puede
           tener más sentido para vos.
         </p>
+
+        <div class="price-box">
+          <div class="old-price">Antes USD 19,99</div>
+          <div class="new-price">Ahora USD 9,99</div>
+          <div class="price-note">Oferta de lanzamiento por tiempo limitado</div>
+        </div>
+
         <div class="cta-group">
           <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
           <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
@@ -379,6 +407,13 @@
         No necesitás hacerlo perfecto. Necesitás entender mejor qué oportunidades existen y cuál tiene
         más sentido para vos. Este e-book está hecho para eso.
       </p>
+
+      <div class="price-box" style="text-align:center;">
+        <div class="old-price">Antes USD 19,99</div>
+        <div class="new-price">Ahora USD 9,99</div>
+        <div class="price-note">Acceso inmediato al e-book digital</div>
+      </div>
+
       <div class="cta-group" style="justify-content:center;">
         <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
         <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
