@@ -132,17 +132,17 @@
 
     .ebook-cover {
       aspect-ratio: 3 / 4;
-      background: linear-gradient(135deg, #22C55E 0%, #38BDF8 100%);
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-      color: #071018;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 800;
-      font-size: 1.6rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .ebook-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .grid-3 {
@@ -285,9 +285,9 @@
         </div>
       </div>
 
-      <div class="ebook-card" aria-label="Vista previa del eBook">
+      <div class="ebook-card">
         <div class="ebook-cover">
-          IA SIN HUMO
+          <img src="portada.png" alt="Portada del eBook IA Sin Humo" />
         </div>
       </div>
     </div>
