@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IA Sin Humo | Elias Dos Santos</title>
   <meta name="description" content="La guía práctica y honesta para entender las oportunidades reales de monetización con Inteligencia Artificial en Latinoamérica." />
+
+  <!-- Open Graph (mejor preview al compartir) -->
+  <meta property="og:title" content="IA Sin Humo | Elias Dos Santos" />
+  <meta property="og:description" content="Guía práctica y honesta para entender oportunidades reales de monetización con IA en Latinoamérica (sin humo)." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0F172A;
@@ -23,15 +30,8 @@
       --max-width: 1120px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -40,10 +40,7 @@
       line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .container {
       width: 90%;
@@ -51,9 +48,7 @@
       margin: 0 auto;
     }
 
-    .section {
-      padding: 80px 0;
-    }
+    .section { padding: 80px 0; }
 
     .badge {
       display: inline-block;
@@ -67,35 +62,14 @@
       border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.15;
-    }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; line-height: 1.15; }
+    h1 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 18px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 18px; }
+    h3 { font-size: 1.2rem; margin-bottom: 12px; }
 
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      margin-bottom: 18px;
-    }
+    p { color: var(--muted); font-size: 1.05rem; }
 
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      margin-bottom: 18px;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-
-    p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .hero {
-      padding: 100px 0 70px;
-    }
-
+    .hero { padding: 100px 0 70px; }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -103,16 +77,14 @@
       align-items: center;
     }
 
-    .hero p {
-      max-width: 650px;
-      margin-bottom: 20px;
-    }
+    .hero p { max-width: 650px; margin-bottom: 20px; }
 
     .cta-group {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 20px;
+      align-items: center;
     }
 
     .btn {
@@ -140,9 +112,15 @@
       color: var(--text);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.05);
+    .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+
+    .micro-note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
     }
+
+    .micro-note strong { color: var(--text); }
 
     .ebook-card {
       background: linear-gradient(180deg, #1E293B 0%, #111827 100%);
@@ -181,9 +159,7 @@
       padding: 24px;
     }
 
-    .card p {
-      font-size: 0.98rem;
-    }
+    .card p { font-size: 0.98rem; }
 
     .list {
       display: grid;
@@ -198,12 +174,9 @@
       padding: 18px 20px;
     }
 
-    .highlight {
-      color: var(--text);
-      font-weight: 700;
-    }
+    .highlight { color: var(--text); font-weight: 700; }
 
-    .author-box {
+    .author-box, .notice-box {
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -211,10 +184,15 @@
       margin-top: 24px;
     }
 
-    .price-box {
-      margin-top: 28px;
+    .notice-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
       margin-bottom: 10px;
+      color: var(--text);
+      font-size: 1.1rem;
     }
+
+    .price-box { margin-top: 28px; margin-bottom: 10px; }
 
     .old-price {
       color: #94A3B8;
@@ -231,10 +209,20 @@
       line-height: 1;
     }
 
-    .price-note {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 8px;
+    .price-note { color: var(--muted); font-size: 0.95rem; margin-top: 8px; }
+
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .faq-q {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
     }
 
     .footer {
@@ -245,30 +233,20 @@
       margin-top: 30px;
     }
 
+    .footer a { text-decoration: underline; text-underline-offset: 4px; }
+
     @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 70px;
-      }
-
-      .cta-group {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        text-align: center;
-      }
+      .hero-grid, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 70px; }
+      .cta-group { flex-direction: column; align-items: stretch; }
+      .btn { text-align: center; }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="hero">
+  <header class="hero" id="inicio">
     <div class="container hero-grid">
       <div>
         <span class="badge">E-book digital para principiantes en Latinoamérica</span>
@@ -286,16 +264,28 @@
         <div class="price-box">
           <div class="old-price">Antes USD 19,99</div>
           <div class="new-price">Ahora USD 9,99</div>
-          <div class="price-note">Oferta de lanzamiento por tiempo limitado</div>
+          <div class="price-note">Acceso inmediato al e-book digital</div>
         </div>
 
         <div class="cta-group">
-          <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
-          <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
+          <a class="btn btn-primary"
+             href="AQUI_TU_LINK_HOTMART"
+             target="_blank"
+             rel="noopener noreferrer">
+             Comprar en Hotmart
+          </a>
+
+          <a class="btn btn-secondary" href="#incluye">
+            Ver qué incluye
+          </a>
+        </div>
+
+        <div class="micro-note">
+          <strong>Importante:</strong> este e-book no promete ingresos. Te da claridad, caminos reales y un plan para empezar.
         </div>
       </div>
 
-      <div class="ebook-card">
+      <div class="ebook-card" aria-label="Vista previa del eBook">
         <div class="ebook-cover">
           IA SIN HUMO
         </div>
@@ -303,130 +293,177 @@
     </div>
   </header>
 
-  <section class="section">
-    <div class="container">
-      <span class="badge">El problema</span>
-      <h2>Demasiado ruido. Demasiadas promesas. Muy poca claridad.</h2>
-      <p>
-        Hay miles de videos, hilos y cursos hablando de ganar dinero con IA. El problema es que
-        gran parte de ese contenido exagera resultados, oculta el trabajo real y deja a la gente
-        más confundida que al principio.
-      </p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>No sabés por dónde empezar</h3>
-          <p>Ves muchas opciones, pero no tenés claro cuál tiene sentido para tu situación real.</p>
-        </div>
-        <div class="card">
-          <h3>Desconfiás del humo</h3>
-          <p>Ya viste demasiadas promesas vacías sobre ingresos fáciles y métodos mágicos.</p>
-        </div>
-        <div class="card">
-          <h3>Querés algo práctico</h3>
-          <p>No buscás fantasía. Buscás una guía clara, útil y realista para empezar mejor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="badge">Qué incluye</span>
-      <h2>Lo que vas a encontrar dentro del e-book</h2>
-      <div class="list">
-        <div class="list-item"><span class="highlight">Introducción honesta:</span> sin historias falsas ni promesas inventadas.</div>
-        <div class="list-item"><span class="highlight">Capítulo 1 al 10:</span> desde qué es realmente la IA hasta cómo elegir un camino y ejecutar un plan.</div>
-        <div class="list-item"><span class="highlight">Herramientas útiles:</span> las que realmente vale la pena conocer al empezar.</div>
-        <div class="list-item"><span class="highlight">Plan de acción de 30 días:</span> para pasar de la teoría a la práctica.</div>
-        <div class="list-item"><span class="highlight">Errores, mitos y verdades incómodas:</span> para evitar humo y expectativas falsas.</div>
-        <div class="list-item"><span class="highlight">Recursos extra y glosario:</span> para seguir aprendiendo con más claridad.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="badge">Para quién es</span>
-      <h2>Este e-book es para vos si...</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Estás empezando desde cero</h3>
-          <p>No sos experto en IA, no sabés programar y necesitás una guía clara para orientarte.</p>
-        </div>
-        <div class="card">
-          <h3>Vivís en Latinoamérica</h3>
-          <p>Querés entender qué oportunidades tienen sentido para tu contexto real y tus recursos actuales.</p>
-        </div>
-        <div class="card">
-          <h3>Querés algo honesto</h3>
-          <p>Preferís una guía realista antes que otra promesa de dinero fácil que suena demasiado buena para ser verdad.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="badge">Qué lo hace distinto</span>
-      <h2>Por qué este e-book no se parece al resto</h2>
-      <div class="list">
-        <div class="list-item">No vende una historia falsa de éxito.</div>
-        <div class="list-item">No promete ingresos garantizados.</div>
-        <div class="list-item">Está escrito para personas comunes, no para expertos en tecnología.</div>
-        <div class="list-item">Explica oportunidades reales con lenguaje claro y útil.</div>
-        <div class="list-item">Está pensado para ayudarte a entender, decidir y empezar.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="badge">Sobre el autor</span>
-      <h2>Quién escribió IA Sin Humo</h2>
-      <div class="author-box">
+  <main>
+    <section class="section" id="problema">
+      <div class="container">
+        <span class="badge">El problema</span>
+        <h2>Demasiado ruido. Demasiadas promesas. Muy poca claridad.</h2>
         <p>
-          <strong>Elias Dos Santos</strong> tiene 20 años, vive en Misiones, Argentina, y escribió este e-book
-          desde un lugar simple: ayudar a principiantes a entender mejor las oportunidades reales
-          de monetización con IA sin caer en humo, exageraciones ni promesas vacías.
+          Hay miles de videos, hilos y cursos hablando de ganar dinero con IA. El problema es que
+          gran parte de ese contenido exagera resultados, oculta el trabajo real y deja a la gente
+          más confundida que al principio.
         </p>
-        <br />
-        <p>
-          No se presenta como gurú ni como alguien que ya “la rompió”. Su enfoque es más honesto:
-          investigar, ordenar, filtrar y explicar de forma clara lo que realmente puede servirle a alguien
-          que está empezando.
+        <div class="grid-3">
+          <div class="card">
+            <h3>No sabés por dónde empezar</h3>
+            <p>Ves muchas opciones, pero no tenés claro cuál tiene sentido para tu situación real.</p>
+          </div>
+          <div class="card">
+            <h3>Desconfiás del humo</h3>
+            <p>Ya viste demasiadas promesas vacías sobre ingresos fáciles y métodos mágicos.</p>
+          </div>
+          <div class="card">
+            <h3>Querés algo práctico</h3>
+            <p>No buscás fantasía. Buscás una guía clara, útil y realista para empezar mejor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="incluye">
+      <div class="container">
+        <span class="badge">Qué incluye</span>
+        <h2>Lo que vas a encontrar dentro del e-book</h2>
+        <div class="list">
+          <div class="list-item"><span class="highlight">Introducción honesta:</span> sin historias falsas ni promesas inventadas.</div>
+          <div class="list-item"><span class="highlight">Capítulo 1 al 10:</span> desde qué es realmente la IA hasta cómo elegir un camino y ejecutar un plan.</div>
+          <div class="list-item"><span class="highlight">Herramientas útiles:</span> las que realmente vale la pena conocer al empezar.</div>
+          <div class="list-item"><span class="highlight">Plan de acción de 30 días:</span> para pasar de la teoría a la práctica.</div>
+          <div class="list-item"><span class="highlight">Errores, mitos y verdades incómodas:</span> para evitar humo y expectativas falsas.</div>
+          <div class="list-item"><span class="highlight">Recursos extra + glosario:</span> para seguir aprendiendo con más claridad.</div>
+        </div>
+
+        <div class="notice-box" style="margin-top:22px;">
+          <div class="notice-title">Nota rápida</div>
+          <p>
+            Algunas herramientas, precios y plataformas pueden cambiar con el tiempo.
+            El enfoque del e-book es darte <span class="highlight">criterio</span> y un mapa claro para arrancar, no una lista “mágica” eterna.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="para-quien">
+      <div class="container">
+        <span class="badge">Para quién es</span>
+        <h2>Este e-book es para vos si...</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Estás empezando desde cero</h3>
+            <p>No sos experto en IA, no sabés programar y necesitás una guía clara para orientarte.</p>
+          </div>
+          <div class="card">
+            <h3>Vivís en Latinoamérica</h3>
+            <p>Querés entender qué oportunidades tienen sentido para tu contexto real y tus recursos actuales.</p>
+          </div>
+          <div class="card">
+            <h3>Querés algo honesto</h3>
+            <p>Preferís una guía realista antes que otra promesa de dinero fácil que suena demasiado buena para ser verdad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diferente">
+      <div class="container">
+        <span class="badge">Qué lo hace distinto</span>
+        <h2>Por qué este e-book no se parece al resto</h2>
+        <div class="list">
+          <div class="list-item">No vende una historia falsa de éxito.</div>
+          <div class="list-item">No promete ingresos garantizados.</div>
+          <div class="list-item">Está escrito para personas comunes, no para expertos en tecnología.</div>
+          <div class="list-item">Explica oportunidades reales con lenguaje claro y útil.</div>
+          <div class="list-item">Está pensado para ayudarte a entender, decidir y empezar.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="autor">
+      <div class="container">
+        <span class="badge">Sobre el autor</span>
+        <h2>Quién escribió IA Sin Humo</h2>
+        <div class="author-box">
+          <p>
+            <strong>Elias Dos Santos</strong> tiene 20 años, vive en Misiones, Argentina, y escribió este e-book
+            desde un lugar simple: ayudar a principiantes a entender mejor las oportunidades reales
+            de monetización con IA sin caer en humo, exageraciones ni promesas vacías.
+          </p>
+          <br />
+          <p>
+            No se presenta como gurú ni como alguien que ya “la rompió”. Su enfoque es más honesto:
+            investigar, ordenar, filtrar y explicar de forma clara lo que realmente puede servirle a alguien
+            que está empezando.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <span class="badge">FAQ</span>
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="list">
+          <div class="faq-item">
+            <div class="faq-q">¿Necesito saber programar?</div>
+            <p>No. La guía está pensada para principiantes. Vas a ver caminos donde lo importante es el criterio, la práctica y la constancia.</p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">¿Me va a hacer ganar plata “sí o sí”?</div>
+            <p>No. Nadie puede garantizar resultados. Lo que hace este e-book es darte claridad, opciones reales y un plan de acción para empezar mejor.</p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">¿Esto sirve si vivo en Latinoamérica?</div>
+            <p>Sí. De hecho, está escrito con foco en el contexto real de LatAm (recursos, barreras, oportunidades y mentalidad).</p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">¿Cómo recibo el e-book?</div>
+            <p>Después de la compra vas a tener acceso/descarga inmediata (según el checkout de Hotmart).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comprar">
+      <div class="container" style="text-align:center;">
+        <span class="badge">Último paso</span>
+        <h2>Elegí empezar con más claridad</h2>
+        <p style="max-width: 720px; margin: 0 auto 26px;">
+          No necesitás hacerlo perfecto. Necesitás entender mejor qué oportunidades existen y cuál tiene
+          más sentido para vos. Este e-book está hecho para eso.
         </p>
+
+        <div class="price-box" style="text-align:center;">
+          <div class="old-price">Antes USD 19,99</div>
+          <div class="new-price">Ahora USD 9,99</div>
+          <div class="price-note">Acceso inmediato al e-book digital</div>
+        </div>
+
+        <div class="cta-group" style="justify-content:center;">
+          <a class="btn btn-primary"
+             href="AQUI_TU_LINK_HOTMART"
+             target="_blank"
+             rel="noopener noreferrer">
+             Comprar en Hotmart
+          </a>
+        </div>
+
+        <div class="micro-note" style="max-width:900px; margin: 16px auto 0;">
+          <strong>Aviso:</strong> este producto es educativo e informativo. Los resultados dependen de tu ejecución, contexto y constancia.
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section">
-    <div class="container" style="text-align:center;">
-      <span class="badge">Último paso</span>
-      <h2>Elegí empezar con más claridad</h2>
-      <p style="max-width: 720px; margin: 0 auto 26px;">
-        No necesitás hacerlo perfecto. Necesitás entender mejor qué oportunidades existen y cuál tiene
-        más sentido para vos. Este e-book está hecho para eso.
-      </p>
-
-      <div class="price-box" style="text-align:center;">
-        <div class="old-price">Antes USD 19,99</div>
-        <div class="new-price">Ahora USD 9,99</div>
-        <div class="price-note">Acceso inmediato al e-book digital</div>
-      </div>
-
-      <div class="cta-group" style="justify-content:center;">
-        <a class="btn btn-primary" href="AQUI_TU_LINK_HOTMART" target="_blank">Comprar en Hotmart</a>
-        <a class="btn btn-secondary" href="AQUI_TU_LINK_GUMROAD" target="_blank">Comprar en Gumroad</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
+  <footer class="footer" id="contacto">
     <div class="container">
       <p><strong>IA Sin Humo</strong> — Elias Dos Santos</p>
       <p>Misiones, Argentina</p>
-      <p style="margin-top: 10px;">Email: dossantoseliascontacto@gmail.com</p>
-      <p>Instagram: @eliasdossantos.digital</p>
+      <p style="margin-top: 10px;">Email: <a href="mailto:dossantoseliascontacto@gmail.com">dossantoseliascontacto@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/eliasdossantos.digital" target="_blank" rel="noopener noreferrer">@eliasdossantos.digital</a></p>
     </div>
   </footer>
 
